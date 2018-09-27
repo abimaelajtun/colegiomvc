@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ColegioMVC3.Models.AlumnoGrado>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Alumno
+        </th>
+        <th>
+            Grado
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Seccion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Alumno.Nombres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Grado.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Seccion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AlumnoGradoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AlumnoGradoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AlumnoGradoId })
+        </td>
+    </tr>
+}
+
+</table>
